@@ -1,0 +1,33 @@
+{
+    "name": "idf/nova-html-card",
+    "description": "A Laravel Nova card to display arbitrary HTML content",
+    "keywords": [
+        "laravel",
+        "nova",
+        "card",
+        "html",
+        "text",
+        "markdown"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IDF\\HtmlCard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IDF\\HtmlCard\\CardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
