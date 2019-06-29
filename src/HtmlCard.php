@@ -25,6 +25,7 @@ class HtmlCard extends Card
         parent::__construct($component);
 
         $this->withMeta([
+            'center' => false,
             'content' => '',
         ]);
     }
@@ -74,5 +75,17 @@ class HtmlCard extends Card
         $htmlContent = view($view, $viewData);
 
         return $this->html($htmlContent);
+    }
+
+    /**
+     * Center card's content
+     *
+     * @param bool $boolean
+     *
+     * @return HtmlCard
+     */
+    public function center($boolean = true)
+    {
+        return $this->withMeta(['center' => $boolean]);
     }
 }

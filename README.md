@@ -24,6 +24,9 @@ public function cards()
 ```
 
 ## Options
- - `->html('string')`: Set HTML or plain content.
- - `->markdown('string')`: Set Markdown content that will be converted into HTML.
- - `->view('path.to.view', [])`: Specify blade view file and optionally pass an array of data to view.
+ - Set content
+     - `->html('string')`: Set HTML or plain content.
+     - `->markdown('string')`: Set Markdown content that will be converted into HTML.
+     - `->view('path.to.view', [])`: Specify blade view file and optionally pass an array of data to view.
+ - Styling
+    - `->center(true)`: Center card's content.
