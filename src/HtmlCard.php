@@ -60,4 +60,19 @@ class HtmlCard extends Card
 
         return $this->html($htmlContent);
     }
+
+    /**
+     * Use blade view file to render Card content.
+     *
+     * @param string $view
+     * @param array  $viewData
+     *
+     * @return HtmlCard
+     */
+    public function view(string $view, array $viewData = [])
+    {
+        $htmlContent = view($view, $viewData);
+
+        return $this->html($htmlContent);
+    }
 }

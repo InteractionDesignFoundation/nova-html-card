@@ -16,8 +16,9 @@ Then, register your new link in the `cards` method of the `NovaServiceProvider` 
 public function cards()
 {
     return [ 
-        (new HtmlCard())->width('1/3')->html('<h1>Hello!</h1>'),
-        (new HtmlCard())->width('1/3')->markdown('# Hello!'),
+        (new HtmlCard())->width('1/3')->html('<h1>Hello World!</h1>'),
+        (new HtmlCard())->width('1/3')->markdown('# Hello World!'),
+        (new HtmlCard())->width('1/3')->view('cards.hello', ['name' => 'World']),
      ];
 }
 ```
