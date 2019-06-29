@@ -1,6 +1,11 @@
 # Nova HTML Card
 
-Adds a card to the Nova dashboard with any arbitrary HTML content.
+[![Latest Stable Version](https://poser.pugx.org/idf/nova-html-card/v/stable)](https://packagist.org/packages/idf/nova-html-card)
+[![Total Downloads](https://poser.pugx.org/idf/nova-html-card/downloads)](https://packagist.org/packages/idf/nova-html-card)
+
+Adds a card to the Laravel Nova dashboard with any arbitrary HTML content.
+
+![image](https://user-images.githubusercontent.com/5278175/60386958-35899080-9aa5-11e9-8e1f-b29e95c80d2c.png)
 
 ## Installation
 
@@ -10,7 +15,9 @@ You can install the package in to a Laravel app that uses [Nova](https://nova.la
 composer require idf/nova-html-card
 ```
 
-Then, register your new link in the `cards` method of the `NovaServiceProvider` or your `ResourceTool` class.
+## Usage
+
+[Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
 
 ```php
 public function cards()
@@ -23,10 +30,23 @@ public function cards()
 }
 ```
 
-## Options
+### Options
  - Set content
      - `->html('string')`: Set HTML or plain content.
      - `->markdown('string')`: Set Markdown content that will be converted into HTML.
      - `->view('path.to.view', [])`: Specify blade view file and optionally pass an array of data to view.
  - Styling
-    - `->center(true)`: Center card's content.
+    - `->center(boolean)`: Center card's content.
+
+
+### Changelog
+
+Please see [Releases](https://github.com/InteractionDesignFoundation/nova-html-card/releases) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
