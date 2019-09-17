@@ -1,7 +1,7 @@
 <template>
-    <card class="flex flex-col justify-center" :class="cardClassList">
+    <card class="flex flex-col justify-center htmlCard" :class="cardClassList">
         <div class="px-3 py-3">
-            <section v-html="card.content">
+            <section v-html="card.content" class="htmlCard__content">
             </section>
         </div>
     </card>
@@ -31,8 +31,15 @@
   }
 </script>
 
-<style scoped>
-    p {
+<style>
+    .htmlCard__content > p {
         margin-bottom: 1em;
+    }
+</style>
+
+<style scoped>
+    .card-panel {
+        min-height: 150px;
+        height: auto;
     }
 </style>
