@@ -30,3 +30,9 @@
     },
   }
 </script>
+
+<style scoped>
+    p {
+        margin-bottom: 1em;
+    }
+</style>
