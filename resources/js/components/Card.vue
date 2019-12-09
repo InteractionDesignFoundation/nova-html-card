@@ -1,34 +1,33 @@
 <template>
-    <card class="flex flex-col justify-center htmlCard" :class="cardClassList">
+    <div v-if="card.withoutCardStyles" class="htmlCard" :class="cardClassList">
+        <div v-html="card.content" class="htmlCard__content">
+        </div>
+    </div>
+
+    <card v-else class="htmlCard htmlCard--hasDefaultHeight" :class="cardClassList">
         <div class="px-3 py-3">
-            <section v-html="card.content" class="htmlCard__content">
-            </section>
+            <div v-html="card.content" class="htmlCard__content">
+            </div>
         </div>
     </card>
 </template>
 
 <script>
-  export default {
-    props: [
-      'card',
-    ],
-    computed: {
-      textClassList() {
-        return this.card.center ? 'text-center' : '';
-      },
-      cardClassList() {
-        const classes = [];
-        if (this.card.center) {
-          classes.push('items-center');
-        }
+    export default {
+        props: [
+            'card',
+        ],
+        computed: {
+            cardClassList() {
+                let classes = '';
+                if (this.card.center) {
+                    classes += ' flex flex-col justify-center text-center';
+                }
 
-        return classes.join(' ');
-      },
-    },
-    mounted() {
-      //
-    },
-  }
+                return classes;
+            },
+        }
+    }
 </script>
 
 <style>
@@ -38,8 +37,10 @@
 </style>
 
 <style scoped>
-    .card-panel {
-        min-height: 150px;
+    .htmlCard {
         height: auto;
+    }
+    .htmlCard--hasDefaultHeight {
+        min-height: 150px;
     }
 </style>

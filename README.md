@@ -32,14 +32,22 @@ public function cards()
 
 ### Options
  - Set content
-     - `->html('string')`: Set HTML or plain content.
-     - `->markdown('string')`: Set Markdown content that will be converted into HTML.
+     - `->html('<h1>Hello!</h1>')`: Set HTML or plain content.
+     - `->markdown('# Hello!')`: Set Markdown content that will be converted into HTML.
      - `->view('path.to.view', [])`: Specify blade view file and optionally pass an array of data to view.
  - Styling
-    - `->center(boolean)`: Center card's content.
+    - `->center(false)`: Center card's content. `false` by default. 
+    - `->withoutCardStyles(true)`: Whether to use standard Nova Card styles for a card (background, padding, etc). `false` by default. 
 
 
-### Changelog
+## Why this package?
+There are a few packages with similar functionality.
+Our package provides an API to cover all cases covered by these packages plus additionally provides some unique features like:
+ - markdown support
+ - easy switch between class Nova-card look and raw-HTML look
+ - Simple, Laravel-like API
+
+## Changelog
 
 Please see [Releases](https://github.com/InteractionDesignFoundation/nova-html-card/releases) for more information on what has changed recently.
 

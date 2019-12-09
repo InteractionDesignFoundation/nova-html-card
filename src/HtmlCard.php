@@ -26,6 +26,7 @@ class HtmlCard extends Card
 
         $this->withMeta([
             'center' => false,
+            'withoutCardStyles' => false,
             'content' => '',
         ]);
     }
@@ -80,12 +81,24 @@ class HtmlCard extends Card
     /**
      * Center card's content
      *
-     * @param bool $boolean
+     * @param bool $centerContent
      *
      * @return HtmlCard
      */
-    public function center($boolean = true)
+    public function center(bool $centerContent = true)
     {
-        return $this->withMeta(['center' => $boolean]);
+        return $this->withMeta(['center' => $centerContent]);
+    }
+
+    /**
+     * Whether to use standard Nova Card styles for a card (background, padding, etc)
+     *
+     * @param bool $withoutStyles
+     *
+     * @return HtmlCard
+     */
+    public function withoutCardStyles(bool $withoutStyles = true)
+    {
+        return $this->withMeta(['withoutCardStyles' => $withoutStyles]);
     }
 }
