@@ -4,7 +4,7 @@
         </div>
     </div>
 
-    <card v-else class="htmlCard htmlCard--hasDefaultHeight" :class="cardClassList">
+    <card v-else class="htmlCard" :class="cardClassList">
         <div class="px-3 py-3">
             <div v-html="card.content" class="htmlCard__content">
             </div>
@@ -31,16 +31,10 @@
 </script>
 
 <style>
-    .htmlCard__content > p {
-        margin-bottom: 1em;
-    }
-</style>
-
-<style scoped>
     .htmlCard {
         height: auto;
     }
-    .htmlCard--hasDefaultHeight {
-        min-height: 150px;
+    .htmlCard__content > p:not(:last-child) {
+        margin-bottom: 1em;
     }
 </style>
