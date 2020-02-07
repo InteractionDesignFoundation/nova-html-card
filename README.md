@@ -20,6 +20,8 @@ composer require idf/nova-html-card
 [Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
 
 ```php
+use IDF\HtmlCard\HtmlCard;
+
 public function cards()
 {
     return [ 
