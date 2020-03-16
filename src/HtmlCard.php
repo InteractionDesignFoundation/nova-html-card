@@ -27,6 +27,7 @@ class HtmlCard extends Card
         $this->withMeta([
             'center' => false,
             'withoutCardStyles' => false,
+            'forceFullWidth' => false,
             'content' => '',
         ]);
     }
@@ -88,6 +89,22 @@ class HtmlCard extends Card
     public function center(bool $centerContent = true)
     {
         return $this->withMeta(['center' => $centerContent]);
+    }
+
+    /**
+     * Force Nova to apply full width for a card.
+     * Nova has undocumented feature to auto-order cards based on width and put
+     * full-width cards at the bottom. If you want to display full-width cards
+     * not at the end, you should use with=1/3 or 2/3 and this method.
+     * @see https://github.com/laravel/nova-issues/issues/1895#issuecomment-543684472
+     *
+     * @param bool $forceFullWidth
+     *
+     * @return HtmlCard
+     */
+    public function forceFullWidth(bool $forceFullWidth = true)
+    {
+        return $this->withMeta(['forceFullWidth' => $forceFullWidth]);
     }
 
     /**

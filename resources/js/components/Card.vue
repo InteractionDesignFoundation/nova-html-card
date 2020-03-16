@@ -26,7 +26,13 @@
 
                 return classes;
             },
-        }
+        },
+        mounted() {
+            if (this.card.forceFullWidth) {
+                this.$parent.$el.classList.remove('w-5/6');
+                this.$parent.$el.classList.add('w-full');
+            }
+        },
     }
 </script>
 
