@@ -11,11 +11,27 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=8.0",
+        "laravel/nova": "^3.0"
     },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.4"
+    },
+    "repositories": [
+        {
+            "type": "composer", "url": "https://nova.laravel.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "IDF\\HtmlCard\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IDF\\HtmlCard\\Tests\\": "tests"
         }
     },
     "extra": {

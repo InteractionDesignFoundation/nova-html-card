@@ -1,10 +1,15 @@
-/.idea
-/vendor
 /node_modules
+yarn.lock
 package-lock.json
+
+/vendor
 composer.phar
 composer.lock
+auth.json
+
 phpunit.xml
 .phpunit.result.cache
+
 .DS_Store
 Thumbs.db
+/.idea

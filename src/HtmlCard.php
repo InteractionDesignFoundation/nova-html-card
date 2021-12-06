@@ -3,6 +3,7 @@
 namespace IDF\HtmlCard;
 
 use Illuminate\Mail\Markdown;
+use Illuminate\Support\Facades\App;
 use Laravel\Nova\Card;
 
 class HtmlCard extends Card
@@ -18,7 +19,6 @@ class HtmlCard extends Card
      * Create a new element.
      *
      * @param  string|null  $component
-     * @return void
      */
     public function __construct($component = null)
     {
@@ -59,7 +59,7 @@ class HtmlCard extends Card
      */
     public function markdown(string $markdownContent)
     {
-        $htmlContent = Markdown::parse($markdownContent)->toHtml();
+        $htmlContent = App::make(MarkdownConverter::class)::parse($markdownContent)->toHtml();
 
         return $this->html($htmlContent);
     }
@@ -74,7 +74,7 @@ class HtmlCard extends Card
      */
     public function view(string $view, array $viewData = [])
     {
-        $htmlContent = view($view, $viewData);
+        $htmlContent = view($view, $viewData)->render();
 
         return $this->html($htmlContent);
     }
