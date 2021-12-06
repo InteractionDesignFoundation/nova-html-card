@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace IDF\HtmlCard;
+namespace InteractionDesignFoundation\HtmlCard;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;

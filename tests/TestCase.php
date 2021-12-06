@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace IDF\HtmlCard\Tests;
+namespace InteractionDesignFoundation\HtmlCard\Tests;
 
-use IDF\HtmlCard\CardServiceProvider;
+use InteractionDesignFoundation\HtmlCard\CardServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 abstract class TestCase extends OrchestraTestCase

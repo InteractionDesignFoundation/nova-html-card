@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace IDF\HtmlCard;
+namespace InteractionDesignFoundation\HtmlCard;
 
 use Illuminate\Support\Facades\App;
 use Laravel\Nova\Card;

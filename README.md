@@ -1,7 +1,7 @@
 # Nova HTML Card
 
-[![Latest Stable Version](https://poser.pugx.org/idf/nova-html-card/v/stable)](https://packagist.org/packages/idf/nova-html-card)
-[![Total Downloads](https://poser.pugx.org/idf/nova-html-card/downloads)](https://packagist.org/packages/idf/nova-html-card)
+[![Latest Stable Version](https://poser.pugx.org/interaction-design-foundation/nova-html-card/v/stable)](https://packagist.org/packages/interaction-design-foundation/nova-html-card)
+[![Total Downloads](https://poser.pugx.org/interaction-design-foundation/nova-html-card/downloads)](https://packagist.org/packages/interaction-design-foundation/nova-html-card)
 
 Adds a card to the Laravel Nova dashboard with any arbitrary HTML content.
 
@@ -13,7 +13,7 @@ Adds a card to the Laravel Nova dashboard with any arbitrary HTML content.
 You can install the package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
 ```bash
-composer require idf/nova-html-card
+composer require interaction-design-foundation/nova-html-card
 ```
 
 
@@ -22,7 +22,7 @@ composer require idf/nova-html-card
 [Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
 
 ```php
-use IDF\HtmlCard\HtmlCard;
+use InteractionDesignFoundation\HtmlCard\HtmlCard;
 
 public function cards()
 {

@@ -1,5 +1,5 @@
 {
-    "name": "idf/nova-html-card",
+    "name": "interaction-design-foundation/nova-html-card",
     "description": "A Laravel Nova card to display arbitrary HTML content",
     "keywords": [
         "laravel",
@@ -26,18 +26,18 @@
     ],
     "autoload": {
         "psr-4": {
-            "IDF\\HtmlCard\\": "src/"
+            "InteractionDesignFoundation\\HtmlCard\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IDF\\HtmlCard\\Tests\\": "tests"
+            "InteractionDesignFoundation\\HtmlCard\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "IDF\\HtmlCard\\CardServiceProvider"
+                "InteractionDesignFoundation\\HtmlCard\\CardServiceProvider"
             ]
         }
     },
