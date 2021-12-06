@@ -2,7 +2,6 @@
 
 namespace IDF\HtmlCard;
 
-use Illuminate\Mail\Markdown;
 use Illuminate\Support\Facades\App;
 use Laravel\Nova\Card;
 
