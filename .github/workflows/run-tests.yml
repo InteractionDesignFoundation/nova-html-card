@@ -43,4 +43,4 @@ jobs:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: composer test
