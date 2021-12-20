@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support Questions & Other
+    url: https://github.com/InteractionDesignFoundation/nova-html-card/discussions
+    about: 'If you have a question or need help using the library, click:'
