@@ -31,9 +31,6 @@
 </script>
 
 <style>
-    .htmlCard {
-        height: auto;
-    }
     .htmlCard__content > p:not(:last-child) {
         margin-bottom: 1em;
     }
