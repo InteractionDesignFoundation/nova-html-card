@@ -4,12 +4,12 @@
         </div>
     </div>
 
-    <card v-else class="htmlCard" :class="cardClassList">
+    <Card v-else class="htmlCard" :class="cardClassList">
         <div class="px-3 py-3">
             <div v-html="card.content" class="htmlCard__content">
             </div>
         </div>
-    </card>
+    </Card>
 </template>
 
 <script>
