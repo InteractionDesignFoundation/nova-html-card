@@ -46,7 +46,6 @@ public function cards()
  - Styling
     - `->center(false)`: Center card's content. `false` by default.
     - `->withoutCardStyles(true)`: Whether to use standard Nova Card styles for a card (background, padding, etc). `false` by default.
-    - `->forceFullWidth(true)`: Force the card to be full width. A fix for [nova cards order](https://github.com/laravel/nova-issues/issues/1895).
 
 
 ## Why this package?
