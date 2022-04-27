@@ -1,3 +1,6 @@
+| We stand with Ukraine | 🇺🇦 |
+|:---------------------:|:-----|
+
 # Nova HTML Card
 
 [![Latest Stable Version](https://poser.pugx.org/interaction-design-foundation/nova-html-card/v/stable)](https://packagist.org/packages/interaction-design-foundation/nova-html-card)
