@@ -4,12 +4,12 @@
         </div>
     </div>
 
-    <card v-else class="htmlCard" :class="cardClassList">
+    <Card v-else class="htmlCard" :class="cardClassList">
         <div class="px-3 py-3">
             <div v-html="card.content" class="htmlCard__content">
             </div>
         </div>
-    </card>
+    </Card>
 </template>
 
 <script>
@@ -27,19 +27,10 @@
                 return classes;
             },
         },
-        mounted() {
-            if (this.card.forceFullWidth) {
-                this.$parent.$el.classList.remove('w-5/6');
-                this.$parent.$el.classList.add('w-full');
-            }
-        },
     }
 </script>
 
 <style>
-    .htmlCard {
-        height: auto;
-    }
     .htmlCard__content > p:not(:last-child) {
         margin-bottom: 1em;
     }
