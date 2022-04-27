@@ -12,7 +12,8 @@ abstract class TestCase extends OrchestraTestCase
         parent::setUp();
     }
 
-    protected function getPackageProviders($app)
+    /** @inheritDoc */
+    protected function getPackageProviders($app): array
     {
         return [
             CardServiceProvider::class,
