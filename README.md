@@ -21,12 +21,6 @@ You can install the package in to a Laravel app that uses [Nova](https://nova.la
 composer require interaction-design-foundation/nova-html-card
 ```
 
-For Nova v4 (Release Candidate):
-```bash
-composer require interaction-design-foundation/nova-html-card ^3.0.0-rc1
-```
-
-
 ## Usage
 
 [Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
