@@ -15,7 +15,6 @@
         "laravel/nova": "^4.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.5",
         "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.5"
     },
