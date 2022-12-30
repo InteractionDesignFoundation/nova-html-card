@@ -24,6 +24,7 @@ class HtmlCard extends Card
         $this->withMeta([
             'center' => false,
             'withoutCardStyles' => false,
+            'withBasicStyles' => false,
             'content' => '',
         ]);
     }
@@ -70,5 +71,11 @@ class HtmlCard extends Card
     public function withoutCardStyles(bool $withoutStyles = true): static
     {
         return $this->withMeta(['withoutCardStyles' => $withoutStyles]);
+    }
+
+    /** Whether to add basic styles for HTML content */
+    public function withBasicStyles(bool $withBasicStyles = true): static
+    {
+        return $this->withMeta(['withBasicStyles' => $withBasicStyles]);
     }
 }
