@@ -5,8 +5,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/interaction-design-foundation/nova-html-card/v/stable)](https://packagist.org/packages/interaction-design-foundation/nova-html-card)
 [![Total Downloads](https://poser.pugx.org/interaction-design-foundation/nova-html-card/downloads)](https://packagist.org/packages/interaction-design-foundation/nova-html-card)
-
-![image](https://user-images.githubusercontent.com/5278175/144929955-20b6d02f-3298-48bf-8780-e0fb3b723641.png)
+[![Type coverage](https://shepherd.dev/github/InteractionDesignFoundation/nova-html-card/coverage.svg)](https://shepherd.dev/github/InteractionDesignFoundation/nova-html-card)
 
 Adds a card to the Laravel Nova dashboard with any arbitrary HTML content.
 
