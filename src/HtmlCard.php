@@ -44,7 +44,10 @@ class HtmlCard extends Card
     /** Set Markdown code to display in a card (converted into HTML). */
     public function markdown(string $markdownContent): static
     {
-        $htmlContent = App::make(MarkdownConverter::class)::parse($markdownContent)->toHtml();
+        /** @var \InteractionDesignFoundation\HtmlCard\MarkdownConverter $converter */
+        $converter = App::make(MarkdownConverter::class);
+
+        $htmlContent = $converter::parse($markdownContent)->toHtml();
 
         return $this->html($htmlContent);
     }
