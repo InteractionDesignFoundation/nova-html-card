@@ -1,0 +1,35 @@
+name: Psalm
+
+on:
+  push:
+    paths:
+      - '**.php'
+      - 'psalm*'
+
+jobs:
+  psalm:
+    name: psalm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl
+          coverage: none
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - name: Run composer install
+        run: |
+          composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}"
+          composer install -n --prefer-dist
+
+      - name: Run Psalm
+        run: ./vendor/bin/psalm --shepherd
