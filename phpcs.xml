@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruleset name="My Coding Standard">
+    <!-- Include all rules from the IxDF Coding Standard -->
+    <rule ref="IxDFCodingStandard">
+        <exclude ref="IxDFCodingStandard.Files.BemCasedFilename.InvalidCharacters"/>
+        <exclude ref="SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal"/>
+        <exclude ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName.NoMatchBetweenTypeNameAndFileName"/>
+    </rule>
+
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>./tests*</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <severity>1</severity><!-- Temp hide the warn -->
+    </rule>
+
+    <!-- Paths to check -->
+    <file>src</file>
+    <file>tests</file>
+</ruleset>

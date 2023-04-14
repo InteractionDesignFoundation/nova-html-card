@@ -2,11 +2,11 @@
 
 namespace InteractionDesignFoundation\HtmlCard;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
-class CardServiceProvider extends ServiceProvider
+class CardServiceProvider extends ServiceProvider // phpcs:ignore SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
 {
     /**
      * Bootstrap any application services.
@@ -14,7 +14,7 @@ class CardServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Nova::serving(function (ServingNova $event) {
+        Nova::serving(static function (ServingNova $event) {
             Nova::script('html-card', __DIR__.'/../dist/js/card.js');
         });
     }

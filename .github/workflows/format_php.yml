@@ -1,0 +1,95 @@
+name: Format (PHP)
+
+on:
+  push:
+    paths:
+      - '**.php'
+      - 'composer.*'
+      - 'phpcs.xml'
+
+jobs:
+  format_php:
+    name: Format PHP
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      # mtime needs to be restored for PHP-CS-Fixer cache to work correctly
+      - name: Restore mtimes
+        uses: weirdan/git-restore-mtime-action@master
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+          tools: cs2pr
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GH_TOKEN_FOR_COMPOSER_FOR_PRIVATE_REPOS }}
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Retrieve Composer‘s cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install composer dependencies -- step 1
+        run: 'composer install --working-dir=tools/php-cs-fixer --no-interaction --no-progress --no-scripts'
+
+      - name: Install composer dependencies -- step 2
+        run: 'composer install --working-dir=tools/phpcs --no-interaction --no-progress --no-scripts'
+
+      - name: Retrieve PHP-CS-Fixer‘s cache
+        uses: actions/cache@v3
+        with:
+          path: .php-cs-fixer.cache
+          key: ${{ runner.os }}-php-cs-fixer-${{ hashFiles('.php-cs-fixer.php', '.phpcs/**/**') }}
+          restore-keys: |
+            ${{ runner.os }}-php-cs-fixer-
+
+      - name: Retrieve PHPCS‘s cache
+        uses: actions/cache@v3
+        with:
+          path: .phpcs.cache
+          key: ${{ runner.os }}-phpcs-${{ hashFiles('phpcs.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-phpcs-
+
+      - name: Detect PHP coding style issues
+        id: lint_php
+        run: composer php:lint
+        continue-on-error: true
+
+      - name: Fix detected PHP coding style issues (if any)
+        if: ${{ steps.lint_php.outcome == 'failure' }}
+        id: fix_php
+        run: composer php:fix
+        continue-on-error: true
+
+      - name: Commit PHP code-style fixes (if any)
+        if: ${{ steps.lint_php.outcome == 'failure' }}
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: '#15000 🪄️ Apply coding style fixes to PHP'
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+          add: '*.php'
+          pull: '--rebase --autostash'
+
+      - name: Lint PHP coding style issues (if previously detected)
+        if: ${{ steps.lint_php.outcome == 'failure' }}
+        run: composer phpcs -- --report-full --report-checkstyle=./phpcs-report.xml
+
+      - name: Show PHPCS results in on GitHub UI
+        if: ${{ steps.lint_php.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml

@@ -2,8 +2,8 @@
 
 namespace InteractionDesignFoundation\HtmlCard\Tests;
 
-use InteractionDesignFoundation\HtmlCard\MarkdownConverter;
 use Illuminate\Support\Facades\App;
+use InteractionDesignFoundation\HtmlCard\MarkdownConverter;
 
 /** @covers \InteractionDesignFoundation\HtmlCard\CardServiceProvider */
 final class CardServiceProviderTest extends TestCase

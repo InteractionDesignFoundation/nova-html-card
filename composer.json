@@ -1,6 +1,7 @@
 {
     "name": "interaction-design-foundation/nova-html-card",
     "description": "A Laravel Nova card to display arbitrary HTML content",
+    "license": "MIT",
     "keywords": [
         "laravel",
         "nova",
@@ -9,21 +10,24 @@
         "text",
         "markdown"
     ],
-    "license": "MIT",
     "require": {
         "php": ">=8.0",
         "laravel/nova": "^4.20"
     },
     "require-dev": {
+        "interaction-design-foundation/coding-standard": "^0.0.4",
         "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.6 || ^10.0",
         "vimeo/psalm": "^5.6"
     },
     "repositories": [
         {
-            "type": "composer", "url": "https://nova.laravel.com"
+            "type": "composer",
+            "url": "https://nova.laravel.com"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "InteractionDesignFoundation\\HtmlCard\\": "src/"
@@ -34,6 +38,12 @@
             "InteractionDesignFoundation\\HtmlCard\\Tests\\": "tests"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -41,12 +51,9 @@
             ]
         }
     },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
+        "cs:check": "phpcs -p -s --colors --report-full --report-summary",
+        "cs:fix": "phpcbf -p --colors",
         "test": "phpunit --colors=always"
     }
 }
