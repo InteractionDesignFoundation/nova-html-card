@@ -1,6 +1,8 @@
 {
     "name": "idf/nova-html-card",
     "description": "A Laravel Nova card to display arbitrary HTML content",
+    "license": "MIT",
+    "abandoned": "interaction-design-foundation/nova-html-card",
     "keywords": [
         "laravel",
         "nova",
@@ -9,7 +11,6 @@
         "text",
         "markdown"
     ],
-    "license": "MIT",
     "require": {
         "php": ">=8.0",
         "laravel/nova": "^3.0"
@@ -21,9 +22,12 @@
     },
     "repositories": [
         {
-            "type": "composer", "url": "https://nova.laravel.com"
+            "type": "composer",
+            "url": "https://nova.laravel.com"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "IDF\\HtmlCard\\": "src/"
@@ -34,6 +38,12 @@
             "IDF\\HtmlCard\\Tests\\": "tests"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -41,11 +51,6 @@
             ]
         }
     },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "test": "phpunit"
     }
