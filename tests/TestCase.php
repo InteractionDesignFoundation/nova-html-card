@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase as OrchestraTestCase;
 abstract class TestCase extends OrchestraTestCase
 {
     /** @inheritDoc */
-    protected function getPackageProviders(): array
+    protected function getPackageProviders($app): array
     {
         return [
             CardServiceProvider::class,

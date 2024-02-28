@@ -3,6 +3,7 @@
 namespace InteractionDesignFoundation\HtmlCard;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 use Laravel\Nova\Card;
 
 class HtmlCard extends Card // phpcs:ignore SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
@@ -11,11 +12,9 @@ class HtmlCard extends Card // phpcs:ignore SlevomatCodingStandard.Classes.Requi
      * The width of the card (1/3, 1/2, or full).
      * @var string
      */
-    public $width = '1/3';
+    public $width = self::ONE_THIRD_WIDTH;
 
-    /**
-     * Create a new element.
-     */
+    /** @inheritDoc */
     public function __construct(string | null $component = null)
     {
         parent::__construct($component);
@@ -29,7 +28,7 @@ class HtmlCard extends Card // phpcs:ignore SlevomatCodingStandard.Classes.Requi
     }
 
     /** @inheritDoc */
-    public function component()
+    public function component(): string
     {
         return 'html-card';
     }
@@ -58,7 +57,7 @@ class HtmlCard extends Card // phpcs:ignore SlevomatCodingStandard.Classes.Requi
      */
     public function view(string $view, array $viewData = []): static
     {
-        $htmlContent = view($view, $viewData)->render();
+        $htmlContent = View::make($view, $viewData)->render();
 
         return $this->html($htmlContent);
     }
