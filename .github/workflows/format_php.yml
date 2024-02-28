@@ -35,11 +35,11 @@ jobs:
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-      - name: Retrieve Composer‘s cache
-        uses: actions/cache@v3
+      - name: Retrieve Composer’s cache
+        uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: |
             ${{ runner.os }}-composer-
 
@@ -49,16 +49,16 @@ jobs:
       - name: Install composer dependencies -- step 2
         run: 'composer install --working-dir=tools/phpcs --no-interaction --no-progress --no-scripts'
 
-      - name: Retrieve PHP-CS-Fixer‘s cache
-        uses: actions/cache@v3
+      - name: Retrieve PHP-CS-Fixer’s cache
+        uses: actions/cache@v4
         with:
           path: .php-cs-fixer.cache
           key: ${{ runner.os }}-php-cs-fixer-${{ hashFiles('.php-cs-fixer.php', '.phpcs/**/**') }}
           restore-keys: |
             ${{ runner.os }}-php-cs-fixer-
 
-      - name: Retrieve PHPCS‘s cache
-        uses: actions/cache@v3
+      - name: Retrieve PHPCS’s cache
+        uses: actions/cache@v4
         with:
           path: .phpcs.cache
           key: ${{ runner.os }}-phpcs-${{ hashFiles('phpcs.xml') }}

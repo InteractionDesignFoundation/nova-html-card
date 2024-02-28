@@ -11,14 +11,14 @@
         "markdown"
     ],
     "require": {
-        "php": ">=8.0",
+        "php": "^8.1",
         "laravel/nova": "^4.20"
     },
     "require-dev": {
-        "interaction-design-foundation/coding-standard": "^0.0.4",
-        "orchestra/testbench": "^7.0",
-        "phpunit/phpunit": "^9.6 || ^10.0",
-        "vimeo/psalm": "^5.6"
+        "interaction-design-foundation/coding-standard": "^0.2.0",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.5 || ^11.0",
+        "vimeo/psalm": "^5.22"
     },
     "repositories": [
         {
@@ -52,8 +52,10 @@
         }
     },
     "scripts": {
+        "cs": "@cs:fix",
         "cs:check": "phpcs -p -s --colors --report-full --report-summary",
         "cs:fix": "phpcbf -p --colors",
+        "psalm": "vendor/bin/psalm",
         "test": "phpunit --colors=always"
     }
 }
