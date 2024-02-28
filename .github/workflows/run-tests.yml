@@ -43,3 +43,24 @@ jobs:
 
       - name: Execute tests
         run: composer test
+
+  npm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache yarn dependencies
+        uses: actions/cache@v4
+        id: yarn-node_modules-cache
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('packages.json') }}-node-20
+
+      - run: yarn && yarn dev
