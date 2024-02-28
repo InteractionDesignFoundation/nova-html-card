@@ -43,6 +43,7 @@ jobs:
       - name: Execute tests
         run: composer test
 
+  # NPM part (test whether assets can be compiled)
   npm:
     runs-on: ubuntu-latest
 
@@ -57,9 +58,10 @@ jobs:
 
       - name: Cache yarn dependencies
         uses: actions/cache@v4
-        id: yarn-node_modules-cache
+        id: npm-node_modules-cache
         with:
           path: node_modules
-          key: yarn-${{ hashFiles('packages.json') }}-node-20
+          key: npm-${{ hashFiles('package.json') }}-node-20
 
-      - run: yarn && yarn dev
+      - name: Compile assets
+        run: npm install && npm run prod
