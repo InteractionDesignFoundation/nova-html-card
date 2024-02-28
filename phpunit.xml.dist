@@ -10,7 +10,7 @@
     cacheDirectory=".phpunit.cache"
     backupStaticProperties="false">
   <testsuites>
-    <testsuite name="Main Test Suite">
+    <testsuite name="Test Suite">
       <directory>tests</directory>
     </testsuite>
   </testsuites>

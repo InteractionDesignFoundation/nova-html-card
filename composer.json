@@ -5,7 +5,7 @@
     "keywords": [
         "laravel",
         "nova",
-        "card",
+        "laravel-nova-card",
         "html",
         "text",
         "markdown"
@@ -16,14 +16,17 @@
     },
     "require-dev": {
         "interaction-design-foundation/coding-standard": "^0.2.0",
-        "orchestra/testbench": "^8.0",
+        "orchestra/testbench": "^8.3",
         "phpunit/phpunit": "^10.5 || ^11.0",
         "vimeo/psalm": "^5.22"
     },
     "repositories": [
         {
             "type": "composer",
-            "url": "https://nova.laravel.com"
+            "url": "https://nova.laravel.com",
+            "only": [
+                "laravel/nova"
+            ]
         }
     ],
     "minimum-stability": "dev",
@@ -40,7 +43,8 @@
     },
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true
         },
         "sort-packages": true
     },
