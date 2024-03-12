@@ -44,8 +44,12 @@ export default {
     padding-left: 30px;
   }
 
-  li {
+  ul li {
     list-style: disc;
+  }
+
+  ol li {
+    list-style: decimal;
   }
 
   h1 {
@@ -110,6 +114,16 @@ export default {
     margin: 0;
     padding: 0;
     white-space: pre;
+  }
+  hr {
+    margin: 1.5rem 0;
+    height: 0.2rem;
+    background-color: #f0f0f0;
+    border: none;
+  }
+  blockquote {
+    border-left: 5px solid #f0f0f0;
+    padding-left: 15px;
   }
 }
 </style>
