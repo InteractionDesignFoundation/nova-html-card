@@ -16,7 +16,7 @@
     "devDependencies": {
         "laravel-mix": "^6.0.43",
         "node-sass": "^9.0.0",
-        "sass-loader": "^13.2.0",
+        "sass-loader": "^16.0.0",
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
