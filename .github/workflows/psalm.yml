@@ -33,5 +33,7 @@ jobs:
       - name: Restore timestamps
         uses: chetan/git-restore-mtime-action@v2
 
+      - run: composer global require cpx/cpx
+
       - name: Run Psalm
-        run: ./vendor/bin/psalm --shepherd
+        run: composer psalm -- --shepherd
