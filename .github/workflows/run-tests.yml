@@ -8,8 +8,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.4, 8.3, 8.2, 8.1 ]
-        laravel: [ 10.*, 11.* ]
+        php: [ 8.4, 8.3, 8.2 ]
+        laravel: [ 11.* ]
         dependency-version: [ prefer-stable ]
         include:
           - laravel: 11.*
@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}"
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench-core:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}

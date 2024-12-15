@@ -18,8 +18,8 @@ jobs:
           ref: ${{ github.head_ref }}
 
       # mtime needs to be restored for PHP-CS-Fixer cache to work correctly
-      - name: Restore mtimes
-        uses: weirdan/git-restore-mtime-action@master
+      - name: Restore timestamps
+        uses: chetan/git-restore-mtime-action@v2
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
