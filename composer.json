@@ -16,9 +16,8 @@
     },
     "require-dev": {
         "interaction-design-foundation/coding-standard": "^0.3.0",
-        "orchestra/testbench-core": "^9.7",
-        "phpunit/phpunit": "^11.0",
-        "vimeo/psalm": "^5.22"
+        "orchestra/testbench-core": "^8.30 || ^9.7",
+        "phpunit/phpunit": "^11.0"
     },
     "repositories": [
         {
@@ -59,7 +58,9 @@
         "cs": "@cs:fix",
         "cs:check": "phpcs -p -s --colors --report-full --report-summary",
         "cs:fix": "phpcbf -p --colors",
-        "psalm": "vendor/bin/psalm",
+        "psalm": "cpx psalm",
+        "sa": "@psalm",
+        "sa:bl": "cpx psalm --set-baseline=psalm-baseline.xml --long-progress --threads=1",
         "test": "phpunit --colors=always"
     }
 }
