@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "interaction-design-foundation/coding-standard": "^0.3.0",
-        "testbench-core": "^9.7",
+        "orchestra/testbench-core": "^9.7",
         "phpunit/phpunit": "^11.0",
         "vimeo/psalm": "^5.22"
     },
