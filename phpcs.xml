@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="My Coding Standard">
+<ruleset name="IxDF Package Standard">
     <!-- Include all rules from the IxDF Coding Standard -->
     <rule ref="IxDFCodingStandard">
         <exclude ref="IxDFCodingStandard.Files.BemCasedFilename.InvalidCharacters"/>
