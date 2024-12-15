@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.22.2@d768d914152dbbf3486c36398802f74e80cfde48">
-  <file src="src/HtmlCard.php">
-    <PropertyNotSetInConstructor>
-      <code><![CDATA[HtmlCard]]></code>
-    </PropertyNotSetInConstructor>
-  </file>
-</files>
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0"/>

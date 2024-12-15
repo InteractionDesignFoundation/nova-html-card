@@ -30,5 +30,10 @@ jobs:
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}"
           composer install -n --prefer-dist
 
+      - name: Restore timestamps
+        uses: chetan/git-restore-mtime-action@v2
+
+      - run: composer global require cpx/cpx
+
       - name: Run Psalm
-        run: ./vendor/bin/psalm --shepherd
+        run: composer psalm -- --shepherd

@@ -9,11 +9,11 @@ jobs:
       fail-fast: true
       matrix:
         php: [ 8.3, 8.2 ]
-        laravel: [ 10.* ]
+        laravel: [ 11.* ]
         dependency-version: [ prefer-stable ]
         include:
-          - laravel: 10.*
-            testbench: 8.*
+          - laravel: 11.*
+            testbench: 9.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
@@ -54,14 +54,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Cache yarn dependencies
         uses: actions/cache@v4
         id: npm-node_modules-cache
         with:
           path: node_modules
-          key: npm-${{ hashFiles('package.json') }}-node-20
+          key: npm-${{ hashFiles('package.json') }}-node-22
 
       - name: Compile assets
         run: npm install && npm run prod

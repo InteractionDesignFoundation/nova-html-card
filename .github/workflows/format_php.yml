@@ -18,13 +18,13 @@ jobs:
           ref: ${{ github.head_ref }}
 
       # mtime needs to be restored for PHP-CS-Fixer cache to work correctly
-      - name: Restore mtimes
-        uses: weirdan/git-restore-mtime-action@master
+      - name: Restore timestamps
+        uses: chetan/git-restore-mtime-action@v2
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.4
           coverage: none
           tools: cs2pr
         env:
@@ -43,17 +43,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      - name: Install composer dependencies -- step 1
-        run: 'composer install --working-dir=tools/php-cs-fixer --no-interaction --no-progress --no-scripts'
-
-      - name: Install composer dependencies -- step 2
-        run: 'composer install --working-dir=tools/phpcs --no-interaction --no-progress --no-scripts'
-
       - name: Retrieve PHP-CS-Fixer’s cache
         uses: actions/cache@v4
         with:
           path: .php-cs-fixer.cache
-          key: ${{ runner.os }}-php-cs-fixer-${{ hashFiles('.php-cs-fixer.php', '.phpcs/**/**') }}
+          key: ${{ runner.os }}-php-cs-fixer-${{ hashFiles('.php-cs-fixer.php') }}
           restore-keys: |
             ${{ runner.os }}-php-cs-fixer-
 
@@ -73,7 +67,7 @@ jobs:
       - name: Fix detected PHP coding style issues (if any)
         if: ${{ steps.lint_php.outcome == 'failure' }}
         id: fix_php
-        run: composer php:fix
+        run: composer cs:check
         continue-on-error: true
 
       - name: Commit PHP code-style fixes (if any)
