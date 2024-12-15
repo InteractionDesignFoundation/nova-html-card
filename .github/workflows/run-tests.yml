@@ -8,12 +8,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.3, 8.2 ]
-        laravel: [ 10.* ]
+        php: [ 8.4, 8.3, 8.2, 8.1 ]
+        laravel: [ 10.*, 11.* ]
         dependency-version: [ prefer-stable ]
         include:
-          - laravel: 10.*
-            testbench: 8.*
+          - laravel: 11.*
+            testbench: 9.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}"
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench-core:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
@@ -54,14 +54,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Cache yarn dependencies
         uses: actions/cache@v4
         id: npm-node_modules-cache
         with:
           path: node_modules
-          key: npm-${{ hashFiles('package.json') }}-node-20
+          key: npm-${{ hashFiles('package.json') }}-node-22
 
       - name: Compile assets
         run: npm install && npm run prod
