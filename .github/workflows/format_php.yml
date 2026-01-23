@@ -60,7 +60,9 @@ jobs:
             ${{ runner.os }}-phpcs-
 
       - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist
+        run: |
+          composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}" --ansi
+          composer install --no-progress --prefer-dist
 
       - name: Detect PHP coding style issues
         id: lint_php
