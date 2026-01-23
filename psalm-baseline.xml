@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0"/>
+<files psalm-version="6.14.3@d0b040a91f280f071c1abcb1b77ce3822058725a">
+  <file src="src/CardServiceProvider.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[CardServiceProvider]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function register(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/HtmlCard.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[HtmlCard]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function component(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+</files>
