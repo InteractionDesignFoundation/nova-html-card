@@ -125,5 +125,26 @@ export default {
     border-left: 5px solid #f0f0f0;
     padding-left: 15px;
   }
+
+  table {
+    border-collapse: collapse;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+  }
+
+  th,
+  td {
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+  }
+
+  th {
+    font-weight: 600;
+    background-color: rgba(128, 128, 128, 0.08);
+  }
+
+  tr:hover td {
+    background-color: rgba(128, 128, 128, 0.04);
+  }
 }
 </style>
