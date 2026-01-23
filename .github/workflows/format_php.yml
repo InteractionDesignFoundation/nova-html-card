@@ -59,15 +59,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-phpcs-
 
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist
+
       - name: Detect PHP coding style issues
         id: lint_php
-        run: composer php:lint
+        run: composer cs:check
         continue-on-error: true
 
       - name: Fix detected PHP coding style issues (if any)
         if: ${{ steps.lint_php.outcome == 'failure' }}
         id: fix_php
-        run: composer cs:check
+        run: composer cs:fix
         continue-on-error: true
 
       - name: Commit PHP code-style fixes (if any)
@@ -82,7 +85,7 @@ jobs:
 
       - name: Lint PHP coding style issues (if previously detected)
         if: ${{ steps.lint_php.outcome == 'failure' }}
-        run: composer phpcs -- --report-full --report-checkstyle=./phpcs-report.xml
+        run: ./vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
 
       - name: Show PHPCS results in on GitHub UI
         if: ${{ steps.lint_php.outcome == 'failure' }}
