@@ -60,6 +60,16 @@ Our package provides an API to cover all cases covered by these packages plus ad
 
 Please see [Releases](https://github.com/InteractionDesignFoundation/nova-html-card/releases) for more information on what has changed recently.
 
+## Updating assets
+
+After updating assets, you need to "recompile" them for production:
+```shell
+composer i
+npm i
+npm run nova:install
+npm run prod
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
