@@ -15,7 +15,7 @@ class HtmlCard extends Card // phpcs:ignore SlevomatCodingStandard.Classes.Requi
     public $width = self::ONE_THIRD_WIDTH;
 
     /** @inheritDoc */
-    public function __construct(string | null $component = null)
+    public function __construct(?string $component = null)
     {
         parent::__construct($component);
 
